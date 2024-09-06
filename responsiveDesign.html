@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <h1>Version movil en desarrollo...</h1>
+    <img class="gato" src="/img/LOGO_GATO_V2.png" alt="">
+    <img class="rueda" src="/img/CIRCULO_LETERING_MOVEMNT.gif" alt="Cargando...">
+
+
+    <style>
+        body {
+            padding: 0px 20px;
+            height: 100svh;
+            flex-wrap: wrap;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 10svh;
+            font-size: 3rem;
+        }
+        .gato{
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 20vw;
+        }
+        .rueda {
+            width: 40%;
+
+        }
+    </style>
+</body>
+
+<script>
+    window.onload = function() {
+        if (window.innerWidth > 1000) {
+            // Redirigir a otro apartado de la web
+            window.location.href = "./index.html";
+        }
+    };
+</script>
+
+</html>

@@ -1,0 +1,30 @@
+body.dark, body.dark header{
+    background: rgb(0, 0, 0);
+}
+
+body.dark h1, body.dark h2, body.dark p, body.dark span, body.dark #contenedorTop a, body.dark #titKesso h3 {
+    color: white;
+}
+
+body.dark #textoPartners, body.dark #textoKas, body.dark #textoKesso {
+    background-color: rgb(17, 16, 16);
+}
+
+body.dark .darkModeSwitch{
+    background: black;
+    border: 1px solid white;
+}
+
+body.dark .darkModeSwitch::after{
+    background: white;
+}
+
+body.dark header{
+    background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+}
+
+body.dark #flechaArriba, body.dark #imgCreativeCharacter, 
+body.dark #imgFlechaDerecha, body.dark .cargar-logo {
+    -webkit-filter: invert(100%);
+    filter: invert(100%);   
+}

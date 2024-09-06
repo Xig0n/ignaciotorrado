@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ignacio Torrado | Branding Packaging & Naming</title>
+    <meta charset="utf-8">
+    <link rel="icon" type="image/x-icon" href="/img/LOGO_GATO.ico">
+    <link rel="stylesheet" href="./css/style.css">
+    <meta name="viewport" content="initial-scale=1, width=device-width">
+    <!-- <link rel="stylesheet" type="text/css" href="./css/styleDark.css" /> -->
+</head>
+<body>
+    
+    <div class="cursor"></div>
+    <header>
+        <a id="enlaceHome" href="index.html">
+            <div id="contenedorLogo">
+                <img src="/img/LOGO_GATO-05.png" id="logoGatoHeader" alt="Logo de la página"><h1 id="hii">HI!</h1>
+            </div>
+        </a>
+        <div class="contenedorMenu">
+            <div id="menu">
+                <a href="index.html" class="menu-item" id="work"><span>WORK</span></a> &nbsp;&nbsp;
+                <a href="about.html" class="menu-item" id="about"><span>ABOUT</span></a> &nbsp;&nbsp;
+                <a href="contact.html" class="menu-item activo" id="contact"><span>CONTACT</span></a> &nbsp;&nbsp;
+                <a href="reference.html" class="menu-item" id="refecence"><span>REFERENCE</span></a>
+            </div>
+            <!--<div class="contSwitchDark" id="switch">
+                <div id="divSol">
+                    <img src="/img/SOL-LUNA-13.png" id="imgSol" class="activo">
+                </div>
+                <div id="divLuna">
+                    <img src="/img/SOL-LUNA-14.png" id="imgLuna">
+                </div>
+            </div>-->
+        </div>
+    </header>
+
+    <!--<img src="/img/BARRA_IZQ-06.png" alt="Marca de agua izquierda" class="marcaAgua izquierda">
+    <img src="/img/BARRA_DRCH-07.png" alt="Marca de agua derecha" class="marcaAgua derecha">-->
+
+    <div id="contenedorInfo" id="top">
+        <div class="divTit">
+            <h2 id="titContact">
+                WHAT IF THE TIME HAD <br>
+                COME TIME TO CHANGE?
+            </h2>
+            <p class="pContact">
+                Write to me if you want to think <br>
+                differently, design innovative strategies <br>
+                and explore new solutions.
+            </p>
+        </div>
+
+        <div class="divFormP"> 
+            <div class="divClientSupplier"> 
+                <h2 id="titClient" class="cursor-scale small">CLIENT</h2> <h2 class="h2Barra">|</h2> <h2 id="titSupplier" class="cursor-scale small">SUPPLIER</h2>
+            </div>
+
+            <div class="formContainer" id="FormContainer">
+                <div class="divFormClient" id="FormClient">
+                    <form action="contact.php" method="post" >
+                        <input name="typeForm" value="clientForm" maxlength="255" style="display: none;" autocomplete="false">
+                        <input type="text" name="nameSurname" maxlength="255" class="inputNameSurname" placeholder="Name and surname" autofocus autocomplete="off" required ><br>
+                        <input type="email" name="email" maxlength="255" class="inputEmail" placeholder="Email" autocomplete="off" required >
+                        <input type="tel"  name="telf" maxlength="15" class="inputTelf" placeholder="Phone number" autocomplete="off" required><br>
+                        <input type="text" name="message" class="inputMessage" placeholder="Message" autocomplete="off" required>
+                        <div class="formSend">
+                            <input type="submit" class="inputSend cursor-scale small" value="SEND">
+                            <div class="RSIcon arrow-top-corner" style="border-color: red; color: red;"></div>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="divFormSupplier" id="FormSupplier">
+                    <form action="contact.php" method="post">
+                        <input name="typeForm" value="supplierForm" maxlength="255" style="display: none;" autocomplete="false">
+                        <input type="text" name="nameSurname" maxlength="255" class="inputNameSurname" placeholder="Supplier Name" autofocus autocomplete="off" required><br>
+                        <input type="email" name="email" maxlength="255" class="inputEmail" placeholder="Email" autocomplete="off" required>
+                        <input type="tel"  name="telf" maxlength="15" class="inputTelf" placeholder="Phone number" autocomplete="off" required><br>
+                        <input type="text" name="message" class="inputMessage" placeholder="Message" autocomplete="off" required>
+                        <div class="formSend">
+                            <input type="submit" class="inputSend cursor-scale small" value="SEND">
+                            <div class="RSIcon arrow-top-corner" style="border-color: red; color: red;"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div id="contenedorTexto">
+            <p>
+                As your designer, I strive not to just <br>
+                create impactful and effective design, <br>
+                but to also become you trusted partner. <br>
+                Creativity is the only way to keep going forwar. <br>
+            </p>
+        </div>
+
+           
+    </footer>
+
+    <div class="contenedorLogos" id="logoLoading">
+        <img class="ignaLogo" src="/img/CIRCULO_LETERING_MOVEMNT.gif" alt="Loading Logo">
+    </div>
+    <div class="contenedorLogos" id="logoScroll">
+        <img class="ignaLogo" src="/img/CIRCULO_LETERING-02.png" alt="Scroll Logo">
+    </div>
+    <script>
+        const titleClient = document.getElementById("titClient");
+        const titleSupplier = document.getElementById("titSupplier");
+        
+        const formClient = document.querySelector("#FormClient");
+        const formSupplier = document.querySelector("#FormSupplier");
+        const formContainer = document.getElementById("FormContainer");
+        
+        titleClient.addEventListener("click", function(e){
+            formClient.style.display = "block";
+            formSupplier.style.display = "none";
+        })
+
+        titleSupplier.addEventListener("click", function(e){
+            formSupplier.style.display = "block";
+            formClient.style.display = "none";
+        })               
+        
+    </script>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+<script src="./js/cargarLogo.js"></script>
+<!-- <script type="text/javascript" src="darkMode.js"></script> -->
+<script src="./js/menu.js"></script>
+<script src="./js/cursorGSAP.js"></script>
+
+</html>

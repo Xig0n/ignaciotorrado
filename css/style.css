@@ -1,0 +1,865 @@
+/* LOCAL FONTS */
+@font-face {
+    font-family: "neue haas";
+    src: url("../fonts/neuehaas/NeueHaasGrotDisp-55Roman.otf");
+}
+
+@font-face {
+    font-family: "neue haas bold";
+    src: url("../fonts/neuehaas/NeueHaasGrotDisp-96BlackItalic.otf");
+}
+
+/* VARIABLES */
+:root {
+    /* COLORS */
+    --cl-Red: "red";
+    
+    /* FONTS */
+    --fn-neue-haas: "neue haas";
+    --fn-neue-haas-bold: "neue haas bold";
+    
+}
+
+
+* {
+    box-sizing: border-box;
+    cursor: none;
+}
+
+/* ---------- GSAP CURSOR HOVER SOBRE ELEMENTOS ---------------- */
+/*  SOLO SE ACTIVARA CUANDO SE HAGA HOVER SOBRE CIERTOS ELEMENTOS */
+.cursor {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    margin-left: -10px;
+    margin-top: -10px;
+    border-radius: 50%;
+    border: 2px solid black;
+    transition: transform .2s ease;
+    transform-origin: center center;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+.grow, .grow-small {
+    transform: scale(3);
+    background-color: #fff;
+    mix-blend-mode: difference;
+    border: none;
+}
+
+.grow-small {
+    transform: scale(2);
+    background-color: transparent;
+    mix-blend-mode: normal;
+    border: 2px solid black;
+}
+
+a{
+    text-decoration: none;
+    color: #000;
+}
+
+body{
+    font-family: var(--fn-neue-haas);
+    font-size: 45px;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+  }
+
+html{
+    scroll-behavior: smooth;
+}
+
+#logoGatoFooter, #logoGatoHeader{
+    width: 215px;
+}
+
+p, span{
+    color: black;
+}
+
+/* ----------------- HEADER ------------------ */
+
+header{
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start;
+    padding-right: 2%;
+    margin-bottom: 2%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header img{
+    font-size: 20px;
+    transition: all 0.5s;
+}
+
+
+#contenedorLogo{
+    display: flex;
+    align-items: flex-end;
+    
+}
+
+.contenedorMenu{
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
+    margin-right: 1%; /* Cuando se ponga el darkmode se cambia a 4%*/
+    margin-top: 1%;
+}
+
+#contenedorLogo h1{
+    font-family: var(--fn-neue-haas-bold);
+    font-size: 150px;
+    margin-top: 0%;
+    margin-bottom: 0;
+}
+
+/* Desmarcar cuando se ponga el darkmode
+#menu{
+    margin-right: 2%;
+}*/
+
+#menu a {
+    font-size: 20px;
+    text-decoration: none;
+    color: #000;
+    position: relative;
+    display: inline-block;
+}
+
+/* Aparece un subrayado al pasar el ratón por encima */
+#menu a:not(.activo):after {
+    content: "";
+    display: block;
+    margin: auto;
+    border: 1px solid transparent;
+    width: 0px;
+    transition: all .3s;
+}
+#menu a:not(.activo):hover:after {
+    width: 100%;
+    background: #000;
+}
+
+.activo span{
+    border-bottom: 2px  solid black;
+}
+
+#menu a span {
+    position: relative;
+    display: inline-block; /* Evita que el subrayado se extienda a todo el ancho del contenedor */
+}
+
+/* ----------------- FIN HEADER ------------------ */
+
+/* ----------------- CONTENEDOR ------------------ */
+
+
+#contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 200px;
+}
+
+#contenedor a{
+    font-size: 0;
+}
+
+.contenedorImg{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 1.5% 1.5% 1.5%;
+}
+
+/* .contenedorImg > p{
+    margin-left: 2%;
+} */
+
+#letrasGif img{
+    display: block;
+}
+
+#unnamed{
+    width: 100%;
+}
+
+#contKesso {
+    position: relative; /* Añade posición relativa para que los elementos absolutos se posicionen relativos a este contenedor */
+}
+
+.MasInfoTexto {
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 40%;
+    height: 100%;
+    padding-bottom: 150px; 
+    background-color: white;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    transition: left 0.5s ease;
+    z-index: 1;
+}
+
+.MasInfoTexto.active  {
+    left: 0%;
+}
+
+.footerContainerImg {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0; /* Add this line to prevent the button from shrinking */
+    width: 100%;
+}
+
+.footerContainerImg > p {
+    margin: 0.5rem 0px;
+}
+
+.descripcion h2{
+    font-size: 50px;
+    font-weight: bolder;
+    margin: 40px 0px;
+}
+
+.descripcion{
+    font-size: 80%;
+    margin-left: 4%;
+}
+
+.categoria {
+    position: absolute;
+    bottom: 0;
+    padding: 0px 4%;
+    display: flex;
+    justify-content: space-between; 
+    font-size: 60%;
+    margin-bottom: 15%;
+}
+
+
+.contFlecha{
+    width: 20%;
+}
+
+/*.categoria p{
+    border-bottom: #000 1px solid;
+}*/
+
+/* Al pasar el ratón por encima de +info sale un div con información */
+/*#masInfoKesso:hover + #textoKesso, #textoKesso:hover, 
+#masInfoPartners:hover + #textoPartners, #textoPartners:hover,  
+#masInfoKas:hover + #textoKas, #textoKas:hover{
+    left: 0; 
+}*/
+
+
+.bMasInfo {
+    padding: 5px 30px;
+    border-radius: 2rem;
+    background: transparent;
+    border: 2px solid black;
+    font-size: 20px;
+    font-weight: 500;
+    color: black;
+    position: relative;
+    transition: all 0.3s;
+   
+}
+.bMasInfo:hover {
+    background: black;
+    border-color: white;
+    color: white;
+}
+
+
+
+#siguerratones {
+    position: absolute;
+    background: black;
+    color: yellow;
+    width: 100px;
+    height: 200px;
+    display: none;    
+  }
+
+
+
+/*#contPartners:hover #textoPartners, #contKas:hover #textoKas, #contKesso:hover #textoKesso {
+    left: 0;
+}*/
+
+/* Tamaño del 100% a las imagenes y los videos para que se adapten a las pantallas*/
+.contenedorImg img, .contenedorImg video{
+    width: 100%;
+    display: block;
+}
+
+/*.kesso img, .ks img {
+    width: 50%;
+}*/
+
+
+/* ------------------- PÁGINA KESSO --------------------------*/
+
+/*.contenedorImg.cuadrado {
+    display: flex;
+    flex-direction: column; 
+}
+
+.kesso,
+.ks {
+    display: flex;
+}*/
+
+#infoKesso{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 5%;
+}
+
+#textKesso, #titKesso{
+    float: left;
+}
+
+#textKesso{
+    font-size: 70%;
+    margin-right: 5%;
+}
+
+.pAside{
+    text-align: center;
+    font-size: 80%;
+}
+
+/* CREDITS CONTAINER */
+.creditsContainer {
+    margin: 50px 2%;
+    width: 70%;
+}
+
+.creditsDetails {
+    width: 100%;
+}
+.creditsTitle td {
+    font-size: 60%;
+}
+
+.creditsData td {
+    font-size: 80%;
+}
+
+.catKesso{
+    font-size: 60%;
+}
+
+/* ------------------- FIN PÁGINA KESSO --------------------------*/
+
+
+/* ----------------- FIN CONTENEDOR ------------------ */
+
+
+/* ----------------- CONTENEDOR ABOUT --------------------- */
+#contenedorInfo {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+    align-items: center;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: 200px;
+    font-size: 50px;
+}
+
+/* ----------------- FIN CONTENEDOR ABOUT --------------------- */
+
+/* ----------------- FOOTER -------------------------*/
+
+/*  ----- MARQUEE CONTACTO ------ */
+
+.marquee-wrapper {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    position: relative;
+    font-weight: bolder;
+    font-size: 40px;
+}
+
+.marquee-wrapper--title {
+    background-color: transparent;
+    color: black;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    position: relative;
+    font-weight: bolder;
+    font-size: 120px;
+    /* margin: 20px 0px    ; */
+}
+
+.marquee {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 10s linear infinite;
+}
+
+.marquee--title {
+    animation: marquee-title 20s linear infinite;
+
+}
+
+.marquee-content {
+    display: inline-block;
+    /* margin: inherit; */
+}
+
+
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes marquee-title {
+    0% {
+        transform: translateX(80%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.marquee-wrapper:hover .marquee {
+    animation-play-state: paused;
+}
+
+/* ------ FIN MARQUEE CONTACTO------ */
+
+footer{
+    margin: 2%;
+}
+
+
+.divRS{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* color: green !important; */
+}
+
+.divRS a {
+    color: black;
+}
+
+
+
+.arrow-top-corner {
+    width: 30px;
+    height: 30px;
+    border-top: 3px solid black;
+    border-right: 3px solid black;
+    position: relative;
+}
+
+.arrow-top-corner::after {
+    position: absolute;
+    content: '';
+    top: 50%;
+    left: 50%;
+    width: 45px;
+    border-top: 3px solid currentColor;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+.RSIcon {
+    display: inline-block;
+    margin-left: 10px;
+    /* transform: translateY(30%); */
+}
+
+.TopFlechaArriba {
+    margin-right: 20px;
+}
+/* 
+#contenedorTop{
+    margin-right: 15%;
+} */
+
+
+/* Fija el logo y posiciona la distancia inferior y derecha */
+.contenedorLogos {
+    position: fixed;
+    display: block;
+    bottom: 20px !important;
+    right: 20px !important;
+    z-index: 1000;
+}
+
+
+#logoScroll {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+#logoScroll.show {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+.ignaLogo{
+    width: 220px;
+    height: 220px;
+}
+
+
+/* ------------------ FIN FOOTER ------------------------*/
+
+/* ---------------------------- PÁGINA ABOUT ------------------------- */
+#titAboutMe{
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+
+#pAboutMe{
+    font-size: 50px;
+    margin-top: 0;
+}
+
+#titServices{
+    margin-bottom: 0;
+}
+
+hr{
+    width: 100%;
+    height: 3px;
+    background-color: black;
+    border: none;
+    margin: 0;
+}
+
+.services{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* ---------------------------- FIN PÁGINA ABOUT ------------------------- */
+
+/* ------------------ MARCAS DE AGUA LATERALES ----------------- */
+
+/* Fija las imagenes en el lugar y se ajusta la distancia desde la parte superior */
+/*.marcaAgua {
+    position: fixed;
+    top: 200px;
+    width: 40px; 
+}*/
+
+/* Ajustar la distancia con la parte derecha e izquierda respectivamente */
+/*.marcaAgua.izquierda {
+    left: 7px; 
+}
+
+.marcaAgua.derecha {
+    right: 7px; 
+}*/
+
+/* ------------------- FIN MARCAS DE AGUA LATERALES ----------------------- */
+
+/*.contSwitchDark{
+    margin-top: 2%;
+}
+
+.darkModeSwitch{
+    background: #ffffff;
+    display:flex;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    border: 1px solid black;
+    border-radius: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1px;
+}
+.darkModeSwitch img{
+    width: 30px;
+    line-height:30px;
+    display:block;
+    color:#fff;
+    background: none;
+}
+
+.darkModeSwitch::after{
+    display:block;
+    background: #000000;
+    width: 1.9rem;
+    height: 1.9rem;
+    position: absolute;
+    top:0;
+    left:0;
+    right:unset;
+    border-radius: 3rem;
+    transition: all .5s ease;
+    content: "";
+}
+.darkModeSwitch.active{
+  background: #ffffff;
+}
+.darkModeSwitch.active::after{
+  left:unset;
+  right:0;
+}*/
+
+
+
+/* ------------------------------------------------------------------------------------------------ */
+#imgLuna, #imgSol{
+    width: 3%;
+    position: fixed;
+    margin-top: 1%;
+}
+
+.contSwitchDark{
+    margin-right: 5%;
+}
+
+.activo{
+    display: none;
+}
+
+.claro{
+    display: block;
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+}
+
+.oscuro{
+    display: none;
+}
+
+
+/* -------------------- PÁGINA CONTACT -----------------------*/
+#titContact{
+    margin-bottom: 0;
+}
+
+#titSupplier, #titClient{
+    transition: all 0.3s ;
+    
+}
+
+#titSupplier:hover, #titClient:hover{
+    transform: scale(1.1);
+}
+
+#titSupplier:after, #titClient:after {
+    content: "";
+    display: block;
+    margin: auto;
+    border: 1px solid transparent;
+    width: 0px;
+    transition: all .3s;
+}
+
+#titSupplier:hover:after, #titClient:hover:after {
+    width: 100%;
+    background: #000;
+}
+
+.divClientSupplier{
+    display: flex;
+}
+
+.h2Barra{
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.divFormP{
+    width: 100%;
+    /* height: 400px; */
+}
+
+.divFormClient, .divFormSupplier{
+    width: 100%;
+}
+
+.divFormClient{
+    display: block;
+}
+
+.divFormSupplier{
+    display: none;
+}
+
+
+::placeholder{
+    font-size: 35px;
+    color: black;
+    font-family: var(--fn-neue-haas);
+}
+
+input{
+    height: 35px;
+    border: none;
+    border-bottom: 3px solid black;
+    font-size: 30px;
+    padding: 0;
+}
+
+input:focus {
+    outline: none;
+}
+
+.inputNameSurname, .inputMessage{
+    width: 100%;
+}
+
+.inputEmail, .inputTelf{
+    width: 47%;
+}
+
+.inputTelf{
+    margin-left: 5%;
+}
+
+.inputEmail, .inputTelf, .inputMessage{
+    margin-top: 4%;
+}
+
+.formSend {
+    float: right;
+    transition: all 0.3s;
+}
+
+.inputSend{
+    height: auto;
+    font-size: 40px;
+    border: none;
+    color: red;
+    margin-top: 2%;
+    background-color: white;
+}
+
+
+
+.formSend:hover {
+    font-weight: 500;
+    transform: scale(1.1);
+}
+
+
+/* ---------------------- FIN CONTACT ------------------------- */
+
+
+/* ----------------- PAGINA REFERENCES ------------------ */
+
+.referencesTitle {
+    margin: 70vh 0px 40vh 0px ;
+    text-align: center;
+    font-size: 170px;
+    transform: translateX(60%);
+    white-space: nowrap;
+}
+
+.contenedorSelection{
+    position: relative;
+}
+
+.SelectionParagraph {
+    margin-top: 200px;
+}
+
+.SelectionParagraph, .CreativeCharacterParagraph {
+    margin-left: 20%;
+    font-size: 80%;
+    line-height: 1.3em;
+}
+
+.CreativeCharacterParagraph {
+    margin-bottom: 200px;
+}
+
+.contenedorSelection > h2, .contenedorCreativeCharacter > h2 {
+    margin-left: 10%;
+    font-size: 2.5em;
+}
+
+.flechaReference{
+    width: 400px;
+}
+
+.flechaReference--01 {
+    position: absolute;
+    top: 10%;
+    left: 40%;
+}
+
+.flechaReference--02 {
+    position: relative;
+    /* top: 10%; */
+    left: 40%;
+}
+
+.parallaxImage {
+    position: absolute;
+    /* padding: 200px; */
+}
+
+.parallaxImage-01 {
+    left: 20%;
+    top: 0%;
+}
+
+.parallaxImage-02 {
+    left: 70%;
+    top: 10%;
+}
+
+.parallaxImage-03 {
+    left: 10%;
+    top: 30%;
+}
+
+.parallaxImage-04 {
+    left: 70%;
+    top: 55%;
+}
+
+.parallaxImage-05 {
+    left: 20%;
+    top: 60%;
+}
+
+.parallaxImage-06 {
+    left: 40%;
+    top: 80%;
+}
+
+/* ----------------- FIN REFERENCES ------------------ */
